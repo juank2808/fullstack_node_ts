@@ -1,0 +1,22 @@
+{
+  "name": "project_1_devtree",
+  "version": "1.0.0",
+  "description": "explanation for the tsconfing.json file\r {\r     \"compilerOptions\": {\r         \"outDir\": \"./dist\",    // Directorio donde se colocarán los archivos JavaScript compilados. / Directory where compiled JavaScript files will be placed.\r         \"rootDir\": \"./src\",    // Directorio raíz de los archivos fuente TypeScript. / Root directory of the TypeScript source files.\r         \"lib\": [\"ESNext\"],     // Incluye las bibliotecas para las características más recientes de ECMAScript. / Includes libraries for the latest ECMAScript features.\r         \"target\": \"ESNext\",    // Especifica la versión de JavaScript de salida (última versión ECMAScript). / Specifies the output JavaScript version (latest ECMAScript).\r         \"moduleResolution\": \"NodeNext\", // Cómo se resuelven los módulos (siguiendo las reglas de resolución de Node.js). / How modules are resolved (following Node.js resolution rules).\r         \"module\": \"NodeNext\",  // Establece el sistema de módulos a Node.js (tipo de módulo ESNext). / Set module system to Node.js (ESNext module type).\r         \"strict\": \"false\"      // Desactiva la comprobación estricta de tipos (no recomendado en la mayoría de los casos). / Disables strict type checking (not recommended in most cases).\r     }\r }",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

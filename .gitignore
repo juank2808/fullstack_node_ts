@@ -1,0 +1,8 @@
+# Ignorar node_modules en la carpeta project
+project_1_devtree/node_modules/
+
+# Ignorar archivos de entorno
+project_1_devtree/.env
+
+# Ignorar carpeta de compilación
+project_1_devtree/dist/
