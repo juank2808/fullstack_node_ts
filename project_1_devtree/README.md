@@ -58,5 +58,5 @@ project_1_devtree/
 ```
 
 ## Autor
-Desarrollado por **[juank2028]**.
+Desarrollado por **[juank2808]**.
 
