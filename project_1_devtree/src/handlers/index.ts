@@ -1,9 +1,10 @@
+import { haspassword } from "../config/utils/auth";
 import User from "../models/User";
 import { Request, Response } from "express";
 
 export const createAccount = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email } = req.body;
+        const { email, password } = req.body;
 
         const userExist = await User.findOne({ email });
         if (userExist) {
@@ -12,6 +13,7 @@ export const createAccount = async (req: Request, res: Response): Promise<void> 
         }
 
         const user = new User(req.body);
+        user.password = await haspassword(password);
         await user.save();
 
         res.status(201).json({ message: "USER_CREATED" });
