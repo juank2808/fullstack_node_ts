@@ -8,7 +8,7 @@ export const createAccount = async (req: Request, res: Response): Promise<void> 
         const userExist = await User.findOne({ email });
         if (userExist) {
             res.status(400).json({ error: "USER_EXIST" });
-            return; // Asegura que la función termine aquí
+            return; 
         }
 
         const user = new User(req.body);
