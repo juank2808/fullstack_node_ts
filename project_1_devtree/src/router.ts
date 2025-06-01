@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { createAccount, login } from './handlers';
 import { body } from 'express-validator'
+import { handleValidationErrors } from './middleware/validation';
 const router = Router();
 
 router.post(
@@ -17,6 +18,7 @@ router.post(
         .withMessage('Name is required'),
     body('password')
         .isLength({ min: 8 }),
+    handleValidationErrors,
     createAccount
 );
 router.post(
