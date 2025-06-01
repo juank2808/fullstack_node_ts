@@ -2,10 +2,20 @@ import { haspassword } from "../config/utils/auth";
 import slug from "slug";
 import User from "../models/User";
 import { Request, Response } from "express";
+import { validationResult } from "express-validator";
 
 export const createAccount = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, password } = req.body;
+
+        let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.status(400).json({ errors: errors.array() });
+            return;
+        }
+        // console.log(errors);
+        // return;
 
         const userExist = await User.findOne({ email });
         if (userExist) {
@@ -29,6 +39,7 @@ export const createAccount = async (req: Request, res: Response): Promise<void> 
 
         res.status(201).json({ message: "USER_CREATED" });
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error: "INTERNAL_SERVER_ERROR" });
     }
 };
